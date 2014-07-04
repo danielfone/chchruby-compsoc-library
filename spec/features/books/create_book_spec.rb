@@ -6,9 +6,9 @@ feature 'Book creation' do
     click_link 'New'
     fill_in 'Title', with: 'The Art of Computer Programming'
     fill_in 'Author', with: 'Donald Knuth'
-    click_button 'Save'
+    click_button 'Create Book'
     expect(page).to have_content 'Book saved'
-    expect(page).to have_content 'Title The Art of Computer Programming'
-    expect(page).to have_content 'Author Donald Knuth'
+    expect(page).to have_content 'The Art of Computer Programming'
+    expect(page).to have_content 'Donald Knuth'
   end
 end
