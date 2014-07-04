@@ -1,0 +1,27 @@
+<h2>
+  Books
+  <%= link_to 'New', new_book_path, class: 'btn btn-primary' %>
+</h2>
+
+<%- if @books.any? -%>
+  <table class="book list">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <%- @books.each do |book| -%>
+      <tr>
+        <td>
+          <%= book.author %>
+        </td>
+        <td>
+          <%= book.title %>
+        </td>
+      </tr>
+    <%- end -%>
+  </table>
+<%- else -%>
+  <p class="alert alert-info">No books found</p>
+<%- end -%>
