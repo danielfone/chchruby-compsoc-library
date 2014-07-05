@@ -6,9 +6,9 @@ module CompsocLibrary
     let(:book) { Book.new }
     let(:borrower) { Borrower.new }
 
-    describe '#lend' do
-      it 'should lend the book' do
-        Library.lend book, borrower, 2.weeks
+    describe '#issue_book' do
+      it 'should issue_book the book' do
+        Library.issue_book book, borrower, 2.weeks
         expect(book.borrower).to eq borrower
         expect(book.due_on).to eq 2.weeks.from_now.to_date
         expect(book).to be_on_loan
@@ -16,34 +16,34 @@ module CompsocLibrary
       end
 
       it 'should default to a 3 week loan' do
-        Library.lend book, borrower
+        Library.issue_book book, borrower
         expect(book.due_on).to eq 3.weeks.from_now.to_date
       end
 
-      it 'should not lend more books than a borrower is allowed' do
+      it 'should not issue_book more books than a borrower is allowed' do
         book2 = Book.new
-        Library.lend book2, borrower
+        Library.issue_book book2, borrower
 
         borrower.limit = 1
-        expect { Library.lend book, borrower }.to raise_error LimitReachedError
+        expect { Library.issue_book book, borrower }.to raise_error LimitReachedError
         expect(book).not_to be_on_loan
         expect(book.borrower).to be_nil
         expect(borrower.books).not_to include book
       end
 
-      it 'should not lend a book on loan' do
+      it 'should not issue_book a book on loan' do
         borrower2 = Borrower.new
-        Library.lend book, borrower2
+        Library.issue_book book, borrower2
 
-        expect { Library.lend book, borrower }.to raise_error AlreadyOnLoanError
+        expect { Library.issue_book book, borrower }.to raise_error AlreadyOnLoanError
         expect(borrower.books).not_to include book
       end
 
-      it 'should not lend books to borrowers with overdue loans' do
+      it 'should not issue_book books to borrowers with overdue loans' do
         book2 = Book.new
-        Library.lend book2, borrower, -1.days
+        Library.issue_book book2, borrower, -1.days
 
-        expect { Library.lend book, borrower }.to raise_error OverdueLoanError
+        expect { Library.issue_book book, borrower }.to raise_error OverdueLoanError
         expect(book).not_to be_on_loan
         expect(book.borrower).to be_nil
         expect(borrower.books).not_to include book
