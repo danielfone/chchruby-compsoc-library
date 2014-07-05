@@ -11,13 +11,13 @@ module CompsocLibrary
   module Library
     module_function
 
-    def issue_book(book, borrower, length=3.weeks)
+    def issue_book(book, borrower, loan_length=3.weeks)
       raise LimitReachedError if borrower.at_limit?
       raise AlreadyOnLoanError if book.on_loan?
       raise OverdueLoanError if borrower.overdue_books.any?
 
       book.borrower = borrower
-      book.due_on = length.from_now.to_date
+      book.due_on = loan_length.from_now.to_date
       borrower.books << book
     end
   end

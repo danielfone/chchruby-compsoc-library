@@ -7,7 +7,7 @@ module CompsocLibrary
     let(:borrower) { Borrower.new }
 
     describe '#issue_book' do
-      it 'should issue_book the book' do
+      it 'should issue the book' do
         Library.issue_book book, borrower, 2.weeks
         expect(book.borrower).to eq borrower
         expect(book.due_on).to eq 2.weeks.from_now.to_date
@@ -20,7 +20,7 @@ module CompsocLibrary
         expect(book.due_on).to eq 3.weeks.from_now.to_date
       end
 
-      it 'should not issue_book more books than a borrower is allowed' do
+      it 'should not issue more books than a borrower is allowed' do
         book2 = Book.new
         Library.issue_book book2, borrower
 
@@ -31,7 +31,7 @@ module CompsocLibrary
         expect(borrower.books).not_to include book
       end
 
-      it 'should not issue_book a book on loan' do
+      it 'should not issue a book on loan' do
         borrower2 = Borrower.new
         Library.issue_book book, borrower2
 
@@ -39,7 +39,7 @@ module CompsocLibrary
         expect(borrower.books).not_to include book
       end
 
-      it 'should not issue_book books to borrowers with overdue loans' do
+      it 'should not issue books to borrowers with overdue loans' do
         book2 = Book.new
         Library.issue_book book2, borrower, -1.days
 
