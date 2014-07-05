@@ -1,5 +1,7 @@
+require 'ostruct'
+
 module CompsocLibrary
-  class Book
+  class Book < OpenStruct
     attr_accessor :borrower
     attr_accessor :due_on
 
@@ -9,9 +11,13 @@ module CompsocLibrary
       #
       # In this case, borrower can either be a Borrower object or nil
       # If borrower is set:
-      #   !!borrower => !(!<#Borrower>) => !(false) => true
+      #   !!borrower => !(!#<Borrower>) => !(false) => true
       #   !!borrower => !(!nil)         => !(true)  => false
       !!borrower
+    end
+
+    def keywords
+      @table.map { |k,v| v }.join (' ')
     end
 
   end
