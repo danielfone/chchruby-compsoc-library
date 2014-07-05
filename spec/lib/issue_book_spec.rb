@@ -6,6 +6,7 @@ module CompsocLibrary
     let(:borrower) { Borrower.new }
 
     describe '#issue_book' do
+
       it 'should issue the book' do
         Library.issue_book book, borrower, 14
         expect(book.borrower).to eq borrower
@@ -30,7 +31,7 @@ module CompsocLibrary
         expect(borrower.books).not_to include book
       end
 
-      it 'should not issue a book on loan' do
+      it 'should not issue a book already on loan' do
         borrower2 = Borrower.new
         Library.issue_book book, borrower2
 
@@ -47,6 +48,7 @@ module CompsocLibrary
         expect(book.borrower).to be_nil
         expect(borrower.books).not_to include book
       end
+
     end
 
   end
