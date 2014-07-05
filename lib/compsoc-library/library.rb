@@ -1,4 +1,3 @@
-require 'active_support/core_ext'
 require 'compsoc-library/book'
 require 'compsoc-library/borrower'
 
@@ -11,13 +10,13 @@ module CompsocLibrary
   module Library
     module_function
 
-    def issue_book(book, borrower, loan_length=3.weeks)
+    def issue_book(book, borrower, days=21)
       raise LimitReachedError if borrower.at_limit?
       raise AlreadyOnLoanError if book.on_loan?
       raise OverdueLoanError if borrower.overdue_books.any?
 
       book.borrower = borrower
-      book.due_on = loan_length.from_now.to_date
+      book.due_on = Date.today + days
       borrower.books << book
     end
   end

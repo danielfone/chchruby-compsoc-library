@@ -4,7 +4,7 @@ module CompsocLibrary
     attr_accessor :due_on
 
     def on_loan?
-      borrower.present?
+      !!borrower
     end
 
   end

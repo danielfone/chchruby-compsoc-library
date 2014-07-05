@@ -1,5 +1,4 @@
 require 'compsoc-library/library'
-require 'active_support/core_ext'
 
 module CompsocLibrary
   describe Library do
@@ -8,16 +7,16 @@ module CompsocLibrary
 
     describe '#issue_book' do
       it 'should issue the book' do
-        Library.issue_book book, borrower, 2.weeks
+        Library.issue_book book, borrower, 14
         expect(book.borrower).to eq borrower
-        expect(book.due_on).to eq 2.weeks.from_now.to_date
+        expect(book.due_on).to eq Date.today + 14
         expect(book).to be_on_loan
         expect(borrower.books).to include book
       end
 
       it 'should default to a 3 week loan' do
         Library.issue_book book, borrower
-        expect(book.due_on).to eq 3.weeks.from_now.to_date
+        expect(book.due_on).to eq Date.today + 21
       end
 
       it 'should not issue more books than a borrower is allowed' do
@@ -41,7 +40,7 @@ module CompsocLibrary
 
       it 'should not issue books to borrowers with overdue loans' do
         book2 = Book.new
-        Library.issue_book book2, borrower, -1.days
+        Library.issue_book book2, borrower, -1
 
         expect { Library.issue_book book, borrower }.to raise_error OverdueLoanError
         expect(book).not_to be_on_loan
