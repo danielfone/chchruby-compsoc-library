@@ -43,6 +43,10 @@ module CompsocLibrary
       end
 
       it 'should suggest alternatives'
+
+      it 'should handle bad values' do
+        expect(Catalogue.search nil, nil).to eq []
+      end
     end
 
   end
