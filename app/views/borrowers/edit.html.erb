@@ -1,0 +1,9 @@
+<h2>
+  <%= link_to 'Borrowers', borrowers_path %>
+  &rarr;
+  Edit
+</h2>
+
+<%= render 'form', borrower: @borrower %>
+
+<%= link_to 'Delete Borrower', @borrower, method: :delete %>

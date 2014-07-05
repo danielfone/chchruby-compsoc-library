@@ -1,0 +1,27 @@
+<h2>
+  Borrowers
+  <%= link_to 'New', new_borrower_path, class: 'btn btn-primary' %>
+</h2>
+
+<%- if @borrowers.any? -%>
+  <table class="borrower list">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Code</th>
+      </tr>
+    </thead>
+    <%- @borrowers.each do |borrower| -%>
+      <tr>
+        <td>
+          <%= link_to borrower.name, edit_borrower_path(borrower) %>
+        </td>
+        <td>
+          <%= borrower.code %>
+        </td>
+      </tr>
+    <%- end -%>
+  </table>
+<%- else -%>
+  <p class="alert alert-info">No borrowers found</p>
+<%- end -%>
