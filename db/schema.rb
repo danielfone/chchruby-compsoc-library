@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20140705205912) do
   end
 
   create_table "borrowers", :force => true do |t|
-    t.string  "name"
-    t.integer "code"
+    t.string "name"
+    t.string "code"
   end
 
 end
