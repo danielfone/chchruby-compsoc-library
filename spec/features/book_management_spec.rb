@@ -41,7 +41,18 @@ feature 'Book management' do
     click_link 'Confident Ruby'
     fill_in 'Author', with: 'Avdi Grimm'
     click_button 'Update Book'
+    expect(page).to have_content 'Book saved'
     expect(page).to have_content 'Avdi Grimm Confident Ruby'
+  end
+
+  scenario 'Deleting a book' do
+    create :book, title: 'Confident Ruby', author: 'Avdi Grim'
+
+    visit '/'
+    click_link 'Confident Ruby'
+    click_link 'Delete Book'
+    expect(page).to have_content 'Book deleted'
+    expect(page).not_to have_content 'Avdi Grimm Confident Ruby'
   end
 
 end

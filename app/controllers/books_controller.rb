@@ -20,7 +20,13 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find params[:id]
-    @book.update_attributes params[:book]
+    @book.update_attributes params[:book] and flash[:notice] = 'Book saved'
+    respond_with @book, location: books_path
+  end
+
+  def destroy
+    @book = Book.find params[:id]
+    @book.destroy and flash[:notice] = 'Book deleted'
     respond_with @book, location: books_path
   end
 
