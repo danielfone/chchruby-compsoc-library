@@ -6,6 +6,7 @@ module CompsocLibrary
   class LimitReachedError < LibraryError; end
   class AlreadyOnLoanError < LibraryError; end
   class OverdueLoanError < LibraryError; end
+  class NotOnLoanError < LibraryError; end
 
   module Library
     module_function
@@ -19,5 +20,14 @@ module CompsocLibrary
       book.due_on = Date.today + days
       borrower.books << book
     end
+
+    def return_book(book)
+      current_borrower = book.borrower or raise NotOnLoanError
+
+      current_borrower.books.delete book
+      book.borrower = nil
+      book.due_on = nil
+    end
+
   end
 end
