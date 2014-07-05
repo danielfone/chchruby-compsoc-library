@@ -17,7 +17,7 @@
           <%= book.author %>
         </td>
         <td>
-          <%= book.title %>
+          <%= link_to book.title, edit_book_path(book) %>
         </td>
       </tr>
     <%- end -%>

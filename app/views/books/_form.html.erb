@@ -1,4 +1,6 @@
 <%= form_for book do |f| %>
+  <%= render 'form_errors', record: book if book.errors.any? %>
+
   <%= f.label :author %>
   <%= f.text_field :author %>
   <%= f.label :title %>

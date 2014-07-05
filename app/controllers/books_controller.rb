@@ -14,4 +14,14 @@ class BooksController < ApplicationController
     respond_with @book, location: books_path
   end
 
+  def edit
+    @book = Book.find params[:id]
+  end
+
+  def update
+    @book = Book.find params[:id]
+    @book.update_attributes params[:book]
+    respond_with @book, location: books_path
+  end
+
 end
