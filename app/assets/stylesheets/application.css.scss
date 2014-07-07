@@ -23,3 +23,11 @@ nav.main {
     @extend .navbar-nav;
   }
 }
+
+h2 {
+  @extend .page-header;
+}
+
+table {
+  @extend .table;
+}
