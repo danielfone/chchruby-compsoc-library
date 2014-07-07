@@ -7,6 +7,6 @@ describe Borrower do
     borrower = build :borrower
     expect(borrower.code).to be_nil
     borrower.save!
-    expect(borrower.code).to match /\w{10}/
+    expect(borrower.code).to match /\w{5}/
   end
 end

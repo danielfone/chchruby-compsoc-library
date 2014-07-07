@@ -4,10 +4,10 @@ class Borrower < ActiveRecord::Base
 
   before_create :generate_code
 
-  private
+private
 
   def generate_code
-    self.code ||= SecureRandom.hex 10
+    self.code ||= 'B' + SecureRandom.random_number(999_999).to_s
   end
 
 end
