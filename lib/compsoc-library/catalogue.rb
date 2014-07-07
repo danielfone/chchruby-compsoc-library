@@ -17,7 +17,7 @@ module CompsocLibrary
 
     def initialize(collection, params)
       @collection = Array(collection)
-      @params     = Hash(params)
+      @params     = params || {}
       @keyword    = @params.delete :keyword
     end
 
