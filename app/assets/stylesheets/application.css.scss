@@ -31,3 +31,20 @@ h2 {
 table {
   @extend .table;
 }
+
+.notice {
+  @extend .alert;
+  @extend .alert-info;
+}
+
+form {
+  input[type="submit"] {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+}
+
+.form-errors {
+  @extend .alert;
+  @extend .alert-danger;
+}

@@ -16,9 +16,7 @@
     <%- end -%>
   <%- end -%>
   <div class="container">
-    <div class="notice">
-      <%= flash[:notice] %>
-    </div>
+    <%= content_tag :div, flash[:notice], class: 'notice' if flash[:notice] %>
 
     <%= yield %>
   </div>
