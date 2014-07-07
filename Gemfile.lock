@@ -29,6 +29,10 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     arel (3.0.3)
+    bootstrap-navbar (2.1.4)
+      gem_config (~> 0.3)
+    bootstrap-sass (3.1.1.1)
+      sass (~> 3.2)
     builder (3.0.4)
     capybara (2.4.1)
       mime-types (>= 1.16)
@@ -51,6 +55,7 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    gem_config (0.3.1)
     hike (1.2.3)
     i18n (0.6.9)
     journey (1.0.4)
@@ -82,6 +87,9 @@ GEM
       activesupport (= 3.2.19)
       bundler (~> 1.0)
       railties (= 3.2.19)
+    rails_bootstrap_navbar (2.0.1)
+      bootstrap-navbar (~> 2.0)
+      rails (>= 3.0.0)
     railties (3.2.19)
       actionpack (= 3.2.19)
       activesupport (= 3.2.19)
@@ -135,11 +143,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.1.1.1)
   capybara
   coffee-rails (~> 3.2.1)
   factory_girl_rails (~> 4.4)
   jquery-rails
   rails (= 3.2.19)
+  rails_bootstrap_navbar (~> 2.0)
   rspec-rails (~> 3.0)
   sass-rails (~> 3.2.3)
   sqlite3

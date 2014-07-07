@@ -11,3 +11,15 @@
  *= require_self
  *= require_tree .
  */
+
+@import "bootstrap";
+
+nav.main {
+  @extend .navbar;
+  @extend .navbar-default;
+
+  ul.menu {
+    @extend .nav;
+    @extend .navbar-nav;
+  }
+}

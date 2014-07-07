@@ -8,20 +8,19 @@
 </head>
 <body>
 
-  <ul class="menu">
-    <li>
-      <%= link_to_unless_current 'Books', books_path %>
-    </li>
-    <li>
-      <%= link_to_unless_current 'Borrowers', borrowers_path %>
-    </li>
-  </ul>
+  <%= navbar do %>
+    <%= navbar_header brand: 'Compsoc Library', brand_link: '/' %>
+    <%= navbar_group do %>
+      <%= navbar_item 'Books', books_path %>
+      <%= navbar_item 'Borrowers', borrowers_path %>
+    <%- end -%>
+  <%- end -%>
+  <div class="container">
+    <div class="notice">
+      <%= flash[:notice] %>
+    </div>
 
-  <div class="notice">
-    <%= flash[:notice] %>
+    <%= yield %>
   </div>
-
-<%= yield %>
-
 </body>
 </html>
