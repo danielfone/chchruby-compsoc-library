@@ -37,7 +37,7 @@ table {
   @extend .alert-info;
 }
 
-form {
+.save-record form {
   input[type="submit"] {
     @extend .btn;
     @extend .btn-primary;
@@ -55,3 +55,11 @@ a.delete {
   @extend .btn-warning;
   float: right;
 }
+
+a.action {
+  @extend .btn;
+  @extend .btn-default;
+  @extend .btn-xs;
+}
+
+label { font-weight: normal; }

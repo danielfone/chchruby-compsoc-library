@@ -24,10 +24,25 @@ class BooksController < ApplicationController
     respond_with @book, location: books_path
   end
 
+  def issue
+    Library.issue_book book, borrower
+    redirect_to :back
+  end
+
   def destroy
     @book = Book.find params[:id]
     @book.destroy and flash[:notice] = 'Book deleted'
     respond_with @book, location: books_path
+  end
+
+private
+
+  def book
+    @book = Book.find params[:id]
+  end
+
+  def borrower
+    @book = Borrower.find params[:borrower_id]
   end
 
 end

@@ -8,6 +8,10 @@ class BorrowersController < ApplicationController
     @borrower = Borrower.new
   end
 
+  def loans
+    @borrower = Borrower.find params[:id]
+  end
+
   def create
     @borrower = Borrower.create params[:borrower]
     flash[:notice] = 'Borrower saved' if @borrower.persisted?

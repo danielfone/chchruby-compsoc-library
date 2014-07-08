@@ -1,7 +1,7 @@
-<div class="row">
+<div class="row save-record">
   <div class="col-md-4">
 
-    <%= form_for book do |f| %>
+    <%= form_for book, class: 'save' do |f| %>
       <%= render 'form_errors', record: book if book.errors.any? %>
       <div class="form-group">
         <%= f.label :title %>

@@ -9,9 +9,9 @@ feature 'Borrower management' do
     visit '/'
     click_link 'Borrowers'
     expect(page).to have_content <<-PAGE
-      Name            Code
-      Joe Bloggs      123
-      Jane Doe        987
+      Name        Code  On Loan   Overdue
+      Joe Bloggs  123   0         0       Issue Books
+      Jane Doe    987   0         0       Issue Books
     PAGE
   end
 
