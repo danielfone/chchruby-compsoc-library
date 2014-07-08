@@ -11,9 +11,9 @@
 
 <div class="row">
   <div class="col-md-6">
-    <h5>Current Loans</h5>
+    <h4>Current Loans</h4>
     <%- if @borrower.books.any? %>
-      <table class="borrower list">
+      <table>
         <thead>
           <tr>
             <th>Book</th>
@@ -29,6 +29,9 @@
             <td>
               <%= book.due_on %>
             </td>
+            <td>
+              <%= link_to 'Return', return_book_path(book), class: 'action', method: :post %>
+            </td>
           </tr>
         <%- end -%>
       </table>
@@ -38,14 +41,26 @@
   </div>
 
   <div class="col-md-6">
-    <h5>Issue Books</h5>
-    <%- if @borrower.available_books.any? -%>
-      <%- @borrower.available_books.each do |book| -%>
-        <p>
-          <%= link_to 'Issue', issue_book_path(book, borrower_id: @borrower), class: 'action', method: :post %>
-          <%= book.title %>
-        </p>
-      <%- end -%>
+    <h4>Issue Books</h4>
+    <%- if @borrower.available_books.any? %>
+      <table>
+        <thead>
+          <tr>
+            <th>Book</th>
+            <th></th>
+          </tr>
+        </thead>
+        <%- @borrower.available_books.each do |book| -%>
+          <tr>
+            <td>
+              <%= book.title %>
+            </td>
+            <td>
+              <%= link_to 'Issue', issue_book_path(book, borrower_id: @borrower), class: 'action', method: :post %>
+            </td>
+          </tr>
+        <%- end -%>
+      </table>
     <%- else -%>
       <p class="text text-warning">No books available to lend</p>
     <%- end -%>

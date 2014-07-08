@@ -17,4 +17,8 @@ class Book < ActiveRecord::Base
     !!borrower
   end
 
+  def borrower_name
+    borrower.name
+  end
+
 end

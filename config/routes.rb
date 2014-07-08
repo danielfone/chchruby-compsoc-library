@@ -3,6 +3,7 @@ CompsocLibrary::Application.routes.draw do
   resources :books do
     member do
       post :issue
+      post :return
     end
   end
   resources :borrowers do

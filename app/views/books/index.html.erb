@@ -9,6 +9,9 @@
       <tr>
         <th>Title</th>
         <th>Author</th>
+        <th>Status</th>
+        <th>Due</th>
+        <th></th>
       </tr>
     </thead>
     <%- @books.each do |book| -%>
@@ -18,6 +21,15 @@
         </td>
         <td>
           <%= book.author %>
+        </td>
+        <td>
+          <%= book.on_loan? ? 'On Loan: '+book.borrower_name : 'On Shelf' %>
+        </td>
+        <td>
+          <%= book.due_on %>
+        </td>
+        <td>
+          <%= link_to 'Return', return_book_path(book), class: 'action', method: :post if book.on_loan? %>
         </td>
       </tr>
     <%- end -%>

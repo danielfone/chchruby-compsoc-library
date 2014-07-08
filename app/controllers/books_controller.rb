@@ -29,6 +29,11 @@ class BooksController < ApplicationController
     redirect_to :back
   end
 
+  def return
+    Library.return_book book
+    redirect_to :back
+  end
+
   def destroy
     @book = Book.find params[:id]
     @book.destroy and flash[:notice] = 'Book deleted'

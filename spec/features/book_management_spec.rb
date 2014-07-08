@@ -8,9 +8,9 @@ feature 'Book management' do
 
     visit '/'
     expect(page).to have_content <<-PAGE
-      Title                         Author
-      Confident Ruby                Avdi Grimm
-      Crafting Rails Applications   Jose Valim
+      Title                         Author      Status    Due
+      Confident Ruby                Avdi Grimm  On Shelf
+      Crafting Rails Applications   Jose Valim  On Shelf
     PAGE
 
   end
