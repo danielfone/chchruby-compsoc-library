@@ -41,10 +41,17 @@ form {
   input[type="submit"] {
     @extend .btn;
     @extend .btn-primary;
+    float: left;
   }
 }
 
 .form-errors {
   @extend .alert;
   @extend .alert-danger;
+}
+
+a.delete {
+  @extend .btn;
+  @extend .btn-warning;
+  float: right;
 }

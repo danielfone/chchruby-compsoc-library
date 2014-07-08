@@ -2,8 +2,7 @@
   <%= link_to 'Borrowers', borrowers_path %>
   &rarr;
   Edit
+  <%= link_to 'Delete Borrower', @borrower, method: :delete, class: 'delete' %>
 </h2>
 
 <%= render 'form', borrower: @borrower %>
-
-<%= link_to 'Delete Borrower', @borrower, method: :delete %>
