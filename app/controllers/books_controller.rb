@@ -39,12 +39,6 @@ class BooksController < ApplicationController
     redirect_to :back
   end
 
-  def destroy
-    @book = Book.find params[:id]
-    @book.destroy and flash[:notice] = 'Book deleted'
-    respond_with @book, location: books_path
-  end
-
 private
 
   def book

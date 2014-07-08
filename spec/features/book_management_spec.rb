@@ -55,6 +55,8 @@ feature 'Book management' do
   end
 
   scenario 'Deleting a book' do
+    pending 'EASY. Hint: this same functionailty is implemented elsewhere.'
+
     create :book, title: 'Confident Ruby', author: 'Avdi Grimm'
 
     visit '/'
