@@ -4,10 +4,11 @@ describe Borrower do
   subject(:borrower) { described_class.new }
 
   it 'should automatically generate a code if none is provided' do
+    pending 'MEDIUM'
     borrower = build :borrower
     expect(borrower.code).to be_nil
     borrower.save!
-    expect(borrower.code).to match /\w{5}/
+    expect(borrower.code).to match /B\d{5}/
   end
 
   describe '#overdue_books' do
