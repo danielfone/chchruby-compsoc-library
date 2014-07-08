@@ -15,6 +15,7 @@ describe Library do
     end
 
     it 'shoud fail on an unloaned book' do
+      pending 'MEDIUM'
       expect { Library.return_book book }.to raise_error Library::NotOnLoanError
     end
 
