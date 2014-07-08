@@ -11,16 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140705205912) do
+ActiveRecord::Schema.define(:version => 20140708031835) do
 
   create_table "books", :force => true do |t|
-    t.string "title"
-    t.string "author"
+    t.string  "title"
+    t.string  "author"
+    t.integer "borrower_id"
+    t.date    "due_on"
+    t.string  "keywords"
   end
 
+  add_index "books", ["borrower_id"], :name => "index_books_on_borrower_id"
+
   create_table "borrowers", :force => true do |t|
-    t.string "name"
-    t.string "code"
+    t.string  "name"
+    t.string  "code"
+    t.integer "limit"
   end
 
 end
