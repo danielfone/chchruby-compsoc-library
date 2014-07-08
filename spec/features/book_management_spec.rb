@@ -41,7 +41,6 @@ feature 'Book management' do
     click_link 'New'
     click_button 'Create Book'
     expect(page).to have_content "Title can't be blank"
-    expect(page).to have_content "Author can't be blank"
   end
 
   scenario 'Editing a book' do
