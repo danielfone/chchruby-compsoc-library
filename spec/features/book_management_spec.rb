@@ -8,9 +8,9 @@ feature 'Book management' do
 
     visit '/'
     expect(page).to have_content <<-PAGE
-      Author            Title
-      Avdi Grimm        Confident Ruby
-      Jose Valim        Crafting Rails Applications
+      Title                         Author
+      Confident Ruby                Avdi Grimm
+      Crafting Rails Applications   Jose Valim
     PAGE
 
   end
@@ -42,7 +42,7 @@ feature 'Book management' do
     fill_in 'Author', with: 'Avdi Grimm'
     click_button 'Update Book'
     expect(page).to have_content 'Book saved'
-    expect(page).to have_content 'Avdi Grimm Confident Ruby'
+    expect(page).to have_content 'Confident Ruby Avdi Grimm'
   end
 
   scenario 'Deleting a book' do
@@ -52,7 +52,7 @@ feature 'Book management' do
     click_link 'Confident Ruby'
     click_link 'Delete Book'
     expect(page).to have_content 'Book deleted'
-    expect(page).not_to have_content 'Avdi Grimm Confident Ruby'
+    expect(page).to have_content 'No books'
   end
 
 end

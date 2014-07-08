@@ -7,17 +7,17 @@
   <table class="book list">
     <thead>
       <tr>
-        <th>Author</th>
         <th>Title</th>
+        <th>Author</th>
       </tr>
     </thead>
     <%- @books.each do |book| -%>
       <tr>
         <td>
-          <%= book.author %>
+          <%= link_to book.title, edit_book_path(book) %>
         </td>
         <td>
-          <%= link_to book.title, edit_book_path(book) %>
+          <%= book.author %>
         </td>
       </tr>
     <%- end -%>
