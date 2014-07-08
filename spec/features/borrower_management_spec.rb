@@ -3,15 +3,15 @@ require 'rails_helper'
 feature 'Borrower management' do
 
   scenario 'Viewing existing borrowers' do
-    create :borrower, name: 'Joe Bloggs', code: 123
-    create :borrower, name: 'Jane Doe', code: 987
+    create :borrower, name: 'River Tam', code: 123
+    create :borrower, name: 'Simon Tam', code: 987
 
     visit '/'
     click_link 'Borrowers'
     expect(page).to have_content <<-PAGE
       Name        Code  On Loan   Overdue
-      Joe Bloggs  123   0         0       Issue Books
-      Jane Doe    987   0         0       Issue Books
+      River Tam   123   0         0       Issue Books
+      Simon Tam   987   0         0       Issue Books
     PAGE
   end
 
@@ -19,10 +19,10 @@ feature 'Borrower management' do
     visit '/'
     click_link 'Borrowers'
     click_link 'New'
-    fill_in 'Name', with: 'Jeremy Fisher'
+    fill_in 'Name', with: 'Jayne Cobb'
     click_button 'Create Borrower'
     expect(page).to have_content 'Borrower saved'
-    expect(page).to have_content 'Jeremy Fisher'
+    expect(page).to have_content 'Jayne Cobb'
   end
 
   scenario 'Saving an invalid borrower' do
@@ -35,26 +35,27 @@ feature 'Borrower management' do
   end
 
   scenario 'Editing a borrower' do
-    create :borrower, name: 'Janice Nemo'
+    create :borrower, name: 'Zoe Alleyne'
 
     visit '/'
     click_link 'Borrowers'
-    click_link 'Janice Nemo'
-    fill_in 'Name', with: 'Capt. Janice Nemo'
+    click_link 'Zoe Alleyne'
+    fill_in 'Name', with: 'Zoe Washburne'
     click_button 'Update Borrower'
     expect(page).to have_content 'Borrower saved'
-    expect(page).to have_content 'Capt. Janice Nemo'
+    expect(page).to have_content 'Zoe Washburne'
   end
 
   scenario 'Deleting a borrower' do
-    create :borrower, name: 'James Fough'
+    create :borrower, name: 'Hoban Washburne'
 
     visit '/'
     click_link 'Borrowers'
-    click_link 'James Fough'
+    click_link 'Hoban Washburne'
     click_link 'Delete Borrower'
     expect(page).to have_content 'Borrower deleted'
-    expect(page).not_to have_content 'James Fough'
+    expect(page).not_to have_content 'Hoban Washburne'
+    # I am a leaf on the wind...
   end
 
 end

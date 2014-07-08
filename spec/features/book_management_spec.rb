@@ -2,39 +2,40 @@ require 'rails_helper'
 
 feature 'Book management' do
 
-  scenario 'Viewing existing books' do
-    create :book, title: 'Confident Ruby', author: 'Avdi Grimm'
-    create :book, title: 'Crafting Rails Applications', author: 'Jose Valim'
+  before do
+    create :book, title: 'Celestial Homecare Omnibus', author: 'Eccentrica Gallumbits'
+    create :book, title: 'Encyclopedia Galactica', author: 'Obtorto Collo'
+  end
 
+  scenario 'Viewing existing books' do
     visit '/'
     expect(page).to have_content <<-PAGE
-      Title                         Author      Status    Due
-      Confident Ruby                Avdi Grimm  On Shelf
-      Crafting Rails Applications   Jose Valim  On Shelf
+      Title                         Author                 Status    Due
+      Celestial Homecare Omnibus    Eccentrica Gallumbits  On Shelf
+      Encyclopedia Galactica        Obtorto Collo          On Shelf
     PAGE
 
   end
 
   scenario 'Searching for a book' do
     pending 'Fix spec/lib/search_spec.rb'
-    create :book, title: 'Confident Ruby', author: 'Avdi Grimm'
 
     visit '/'
-    fill_in 'q', with: 'Con'
+    fill_in 'q', with: 'Obtorto'
     click_on 'Search'
-    expect(page).to have_content 'Results for "Con"'
-    expect(page).to have_content 'Confident Ruby'
+    expect(page).to have_content 'Results for "Obtorto"'
+    expect(page).to have_content 'Encyclopedia Galactica'
   end
 
   scenario 'Creating a valid book' do
     visit '/'
     click_link 'New'
-    fill_in 'Title', with: 'The Art of Computer Programming'
-    fill_in 'Author', with: 'Donald Knuth'
+    fill_in 'Title', with: 'Fifty-Three More Things to do in Zero Gravity'
+    fill_in 'Author', with: 'Dr. Dan Streetmentioner'
     click_button 'Create Book'
     expect(page).to have_content 'Book saved'
-    expect(page).to have_content 'The Art of Computer Programming'
-    expect(page).to have_content 'Donald Knuth'
+    expect(page).to have_content 'Fifty-Three More Things to do in Zero Gravity'
+    expect(page).to have_content 'Dr. Dan Streetmentioner'
   end
 
   scenario 'Saving an invalid book' do
@@ -45,26 +46,21 @@ feature 'Book management' do
   end
 
   scenario 'Editing a book' do
-    create :book, title: 'Confident Ruby', author: 'Avdi Grim'
-
     visit '/'
-    click_link 'Confident Ruby'
-    fill_in 'Author', with: 'Avdi Grimm'
+    click_link 'Encyclopedia Galactica'
+    fill_in 'Author', with: 'Omnes homines'
     click_button 'Update Book'
     expect(page).to have_content 'Book saved'
-    expect(page).to have_content 'Confident Ruby Avdi Grimm'
+    expect(page).to have_content 'Encyclopedia Galactica Omnes homines'
   end
 
   scenario 'Deleting a book' do
     pending 'EASY. Hint: this same functionailty is implemented elsewhere.'
 
-    create :book, title: 'Confident Ruby', author: 'Avdi Grimm'
-
     visit '/'
-    click_link 'Confident Ruby'
+    click_link 'Encyclopedia Galactica'
     click_link 'Delete Book'
     expect(page).to have_content 'Book deleted'
-    expect(page).to have_content 'No books'
   end
 
 end

@@ -2,10 +2,10 @@ require 'rails_helper'
 
 feature 'Loan management' do
 
-  scenario 'Issue a book to a borrower' do
-    create :borrower, name: 'Jayne'
-    create :book, title: 'The Holistic Detective Agency'
+  let!(:book) { create :book, title: "Time Traveller's Handbook of 1001 Tense Formations" }
+  let!(:borrower) { create :borrower, name: "Malcolm Reynolds" }
 
+  scenario 'Issue a book to a borrower' do
     visit borrowers_path
     click_link 'Issue'
     click_on 'Issue'
@@ -13,15 +13,13 @@ feature 'Loan management' do
       Current Loans
 
       Book                            Due
-      The Holistic Detective Agency
+      Time Traveller's Handbook
     PAGE
   end
 
   scenario 'Issue book beyond a borrowers limit' do
     pending 'HARD. Do spec/lib/issue_book_spec.rb first'
-    borrower = create :borrower, name: 'Jayne', limit: 1
-    create :book, title: 'The Holistic Detective Agency'
-    create :book, title: 'Long Dark Teatime of the Soul', borrower: borrower
+    create :book, title: 'How I Survived an Hour with a Sprained Finger', borrower: borrower
 
     visit borrowers_path
     click_link 'Issue'
@@ -30,8 +28,7 @@ feature 'Loan management' do
   end
 
   scenario 'Return a book via book list' do
-    borrower = create :borrower, name: 'Jayne'
-    create :book, title: 'The Holistic Detective Agency', borrower: borrower
+    borrower.books << book
 
     visit books_path
     click_on 'Return'
@@ -39,8 +36,7 @@ feature 'Loan management' do
   end
 
   scenario 'Return a book via borrower' do
-    borrower = create :borrower, name: 'Jayne'
-    create :book, title: 'The Holistic Detective Agency', borrower: borrower
+    borrower.books << book
 
     visit loans_borrower_path(borrower)
     click_on 'Return'
