@@ -15,6 +15,16 @@ feature 'Book management' do
 
   end
 
+  scenario 'Searching for a book' do
+    create :book, title: 'Confident Ruby', author: 'Avdi Grimm'
+
+    visit '/'
+    fill_in 'q', with: 'Con'
+    click_on 'Search'
+    expect(page).to have_content 'Results for "Con"'
+    expect(page).to have_content 'Confident Ruby'
+  end
+
   scenario 'Creating a valid book' do
     visit '/'
     click_link 'New'
@@ -46,7 +56,7 @@ feature 'Book management' do
   end
 
   scenario 'Deleting a book' do
-    create :book, title: 'Confident Ruby', author: 'Avdi Grim'
+    create :book, title: 'Confident Ruby', author: 'Avdi Grimm'
 
     visit '/'
     click_link 'Confident Ruby'

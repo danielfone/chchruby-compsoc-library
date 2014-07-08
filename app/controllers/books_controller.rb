@@ -4,6 +4,11 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def search
+    @books = Library.search Book.all, keyword: params[:q]
+    render :index
+  end
+
   def new
     @book = Book.new
   end

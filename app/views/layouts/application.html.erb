@@ -14,6 +14,12 @@
       <%= navbar_item 'Books', books_path %>
       <%= navbar_item 'Borrowers', borrowers_path %>
     <%- end -%>
+    <%= form_tag search_books_path, method: :get, class: "navbar-form navbar-left" do %>
+      <div class="form-group">
+        <%= text_field_tag :q, params[:q], class: "form-control", placeholder: "Search for books..." %>
+      </div>
+      <input type="submit" class="btn btn-default" value="Search">
+    <%- end -%>
   <%- end -%>
   <div class="container">
     <%= content_tag :div, flash[:notice], class: 'notice' if flash[:notice] %>
