@@ -26,6 +26,7 @@ feature 'Borrower management' do
   end
 
   scenario 'Saving an invalid borrower' do
+    pending 'MEDIUM. Crib this from elsewhere'
     visit '/'
     click_link 'Borrowers'
     click_link 'New'

@@ -15,7 +15,7 @@ class BorrowersController < ApplicationController
   def create
     @borrower = Borrower.create params[:borrower]
     flash[:notice] = 'Borrower saved' if @borrower.persisted?
-    respond_with @borrower, location: borrowers_path
+    redirect_to borrowers_path
   end
 
   def edit
