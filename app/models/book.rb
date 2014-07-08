@@ -18,7 +18,7 @@ class Book < ActiveRecord::Base
   end
 
   def borrower_name
-
+    # FIXME
   end
 
 end

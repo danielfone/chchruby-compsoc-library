@@ -13,7 +13,7 @@ class CatalogueSearch
 private
 
   def matches?(book)
-    false
+    false # FIXME
   end
 
 end

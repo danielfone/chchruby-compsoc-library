@@ -5,7 +5,7 @@ class Borrower < ActiveRecord::Base
   validates_presence_of :name
 
   def overdue_books
-    []
+    [] # FIXME
   end
 
   def available_books
@@ -13,7 +13,7 @@ class Borrower < ActiveRecord::Base
   end
 
   def at_limit?
-
+    false # FIXME
   end
 
 end
