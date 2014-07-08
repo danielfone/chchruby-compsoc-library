@@ -27,7 +27,7 @@
           <%= book.author %>
         </td>
         <td>
-          <%= book.on_loan? ? 'On Loan: '+book.borrower_name : 'On Shelf' %>
+          <%= book.on_loan? ? "On Loan: #{book.borrower_name}" : 'On Shelf' %>
         </td>
         <td>
           <%= book.due_on %>
