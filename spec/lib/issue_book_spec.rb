@@ -20,6 +20,7 @@ describe Library do
     end
 
     it 'should not issue more books than a borrower is allowed' do
+      pending 'MEDIUM'
       book2 = Book.new
       Library.issue_book book2, borrower
 

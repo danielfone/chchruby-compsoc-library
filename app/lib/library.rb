@@ -9,7 +9,6 @@ module Library
   module_function
 
   def issue_book(book, borrower, days=21)
-    raise LimitReachedError if borrower.at_limit?
     raise AlreadyOnLoanError if book.on_loan?
     raise OverdueLoanError if borrower.overdue_books.any?
 

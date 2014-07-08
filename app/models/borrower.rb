@@ -13,7 +13,7 @@ class Borrower < ActiveRecord::Base
   end
 
   def at_limit?
-    limit && books.size == limit
+
   end
 
 end
