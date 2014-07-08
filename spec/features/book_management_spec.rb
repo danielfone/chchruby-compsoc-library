@@ -16,6 +16,7 @@ feature 'Book management' do
   end
 
   scenario 'Searching for a book' do
+    pending 'Fix spec/lib/search_spec.rb'
     create :book, title: 'Confident Ruby', author: 'Avdi Grimm'
 
     visit '/'

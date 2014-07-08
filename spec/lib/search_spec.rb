@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Library do
 
-  describe '#search' do
+  describe '#search', pending: 'HARD' do
 
     let(:four_rules) { Book.new title: '4 Rules of Simple Design', author: 'Corey Haines', keywords: 'programming' }
     let(:computer_programming) { Book.new title: 'The Art of Computer Programming', author: 'Donald Knuth' }
@@ -39,10 +39,10 @@ describe Library do
         computer_programming,
       ]
     end
+  end
 
-    it 'should handle bad values' do
-      expect(Library.search nil, nil).to eq []
-    end
+  it 'should handle bad values' do
+    expect(Library.search nil, nil).to eq []
   end
 
 end
