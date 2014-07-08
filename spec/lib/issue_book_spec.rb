@@ -39,6 +39,7 @@ describe Library do
     end
 
     it 'should not issue books to borrowers with overdue loans' do
+      pending 'Fix spec/models/borrower_spec.rb first'
       book2 = Book.new
       Library.issue_book book2, borrower, -1
 

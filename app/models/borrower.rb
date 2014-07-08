@@ -7,7 +7,7 @@ class Borrower < ActiveRecord::Base
   before_create :generate_code
 
   def overdue_books
-    books.select { |b| b.due_on < Date.today }
+    []
   end
 
   def available_books
