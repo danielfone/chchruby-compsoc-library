@@ -12,18 +12,23 @@ describe Book do
     expect(book.borrower_name).to eq 'Malcolm Reynolds'
   end
 
-  describe 'overdueness' do
-    context 'when it has no due date' do
-      it { should_not be_overdue }
-    end
-    context 'when the due date has passed', pending: 'EASY' do
-      before { book.due_on = 2.days.ago }
-      it { should be_overdue }
-    end
-    context 'when the due date is in the future' do
-      before { book.due_on = 2.days.from_now }
-      it { should_not be_overdue }
-    end
+  context 'when it has no due date' do
+    it { should_not be_overdue }
+  end
+
+  context 'when the due date is today' do
+    before { book.due_on = Date.today }
+    it { should_not be_overdue }
+  end
+
+  context 'when the due date has passed', pending: 'EASY' do
+    before { book.due_on = 2.days.ago }
+    it { should be_overdue }
+  end
+
+  context 'when the due date is in the future' do
+    before { book.due_on = 2.days.from_now }
+    it { should_not be_overdue }
   end
 
   describe '#days_until_due', pending: 'EASY' do

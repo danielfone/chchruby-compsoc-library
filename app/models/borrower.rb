@@ -16,4 +16,12 @@ class Borrower < ActiveRecord::Base
     false # FIXME
   end
 
+  def current_loan_count
+    0 #FIXME
+  end
+
+  def current_overdue_count
+    0 #FIXME
+  end
+
 end

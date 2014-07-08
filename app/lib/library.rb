@@ -10,7 +10,7 @@ module Library
 
   def issue_book(book, borrower, days=21)
     raise AlreadyOnLoanError if book.on_loan?
-    raise OverdueLoanError if borrower.overdue_books.any?
+    raise OverdueLoanError if borrower.current_overdue_count > 0
 
     book.borrower = borrower
     book.due_on = Date.today + days

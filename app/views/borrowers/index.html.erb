@@ -23,10 +23,10 @@
           <%= borrower.code %>
         </td>
         <td>
-          <%= borrower.books.count %>
+          <%= borrower.current_loan_count %>
         </td>
         <td>
-          <%= borrower.overdue_books.count %>
+          <%= borrower.current_overdue_count %>
         </td>
         <td>
           <%= link_to 'Issue Books', loans_borrower_path(borrower), class: 'action' %>

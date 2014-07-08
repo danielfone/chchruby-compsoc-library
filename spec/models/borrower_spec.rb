@@ -26,4 +26,32 @@ describe Borrower do
       ]
     end
   end
+
+  it 'should know the limits', pending: 'EASY' do
+    expect(borrower).not_to be_at_limit
+    borrower.limit = 1
+    expect(borrower).not_to be_at_limit
+    borrower.books << Book.new
+    expect(borrower).to be_at_limit
+    borrower.books << Book.new
+    expect(borrower).to be_at_limit
+  end
+
+  describe '#current_loan_count', pending: 'EASY' do
+    it 'should be the size of the borrowers book collection' do
+      expect(borrower.current_loan_count).to eq 0
+      borrower.books += build_list :book, 2
+      expect(borrower.current_loan_count).to eq 2
+    end
+  end
+
+  describe '#current_overdue_count', pending: 'EASY' do
+    it 'should be the number of overdue books of the borrowers book collection' do
+      expect(borrower.current_overdue_count).to eq 0
+      borrower.books += build_list :book, 2
+      borrower.books += build_list :book, 2, due_on: (Date.today-1)
+      expect(borrower.current_overdue_count).to eq 2
+    end
+  end
+
 end
