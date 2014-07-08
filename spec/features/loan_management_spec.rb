@@ -17,7 +17,7 @@ feature 'Loan management' do
     PAGE
   end
 
-  scenario 'Return a book' do
+  scenario 'Return a book via book list' do
     borrower = create :borrower, name: 'Fred'
     create :book, title: 'The Holistic Detective Agency', borrower: borrower
 
@@ -25,5 +25,15 @@ feature 'Loan management' do
     click_on 'Return'
     expect(page).not_to have_link 'Return'
   end
+
+  scenario 'Return a book via borrower' do
+    borrower = create :borrower, name: 'Fred'
+    create :book, title: 'The Holistic Detective Agency', borrower: borrower
+
+    visit loans_borrower_path(borrower)
+    click_on 'Return'
+    expect(page).not_to have_link 'Return'
+  end
+
 
 end
