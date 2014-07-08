@@ -21,4 +21,16 @@ class Book < ActiveRecord::Base
     # FIXME
   end
 
+  def overdue?
+    false # FIXME
+  end
+
+  def days_until_due
+    0 # FIXME
+  end
+
+  def keyword_array
+    [] #FIXME
+  end
+
 end
