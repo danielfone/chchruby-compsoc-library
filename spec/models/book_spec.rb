@@ -40,7 +40,7 @@ describe Book do
   end
 
   describe '#keyword_array', pending: 'EA... MEDIUM' do
-    it 'should be an array of all relevant words' do
+    it 'should be a lowercase array of all relevant words' do
       expect(book.keyword_array).to be_empty
 
       book.title = 'Sqornshellous Swamptalk'
