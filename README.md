@@ -31,7 +31,13 @@ When you ran the rspec, you'll see about 20 pending specs. These are all failing
       #keyword_array
         should be an array of all relevant words (PENDING: EA... MEDIUM)
 
-You can pick and choose and tackle the specs in any order you like, but there are a couple that require other failing specs fixed first. Once you've chosen a spec to fix, remove the pending tag, run the spec again and read the error message. You might like to run the spec in documentation mode:
+You can tackle the specs in any order you like, but:
+
+  * you probably want to fix the model specs first (book then borrower will be easiest)
+  * if you do them in the order they're presented, the methods you fix first will be handy for the methods you fix later
+  * there are a couple of feature specs that only require other failing specs fixed (these are marked as such)
+
+Once you've chosen a spec to fix, remove the pending tag, run the spec again and read the error message. You might like to run the spec in documentation mode:
 
     bundle exec rspec -fd spec/models/book_spec.rb
 

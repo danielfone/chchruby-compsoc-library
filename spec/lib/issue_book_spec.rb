@@ -20,7 +20,7 @@ describe Library do
     end
 
     it 'should not issue more books than a borrower is allowed' do
-      pending 'MEDIUM'
+      pending 'EASY'
       book2 = Book.new
       Library.issue_book book2, borrower
 
@@ -40,7 +40,7 @@ describe Library do
     end
 
     it 'should not issue books to borrowers with overdue loans' do
-      pending 'Fix spec/models/borrower_spec.rb first'
+      pending 'Fix spec/models/borrower_spec.rb'
       book2 = Book.new
       Library.issue_book book2, borrower, -1
 
