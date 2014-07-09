@@ -20,6 +20,7 @@ feature 'Loan management' do
   scenario 'Issue book beyond a borrowers limit' do
     pending 'HARD. Do spec/lib/issue_book_spec.rb first'
     create :book, title: 'How I Survived an Hour with a Sprained Finger', borrower: borrower
+    borrower.update_attributes limit: 1
 
     visit borrowers_path
     click_link 'Issue'
