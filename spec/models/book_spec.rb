@@ -31,16 +31,18 @@ describe Book do
     it { should_not be_overdue }
   end
 
-  describe '#days_until_due', pending: 'EASY' do
+  describe '#days_until_due' do
     it 'should be the number of days until due date' do
+      pending 'EASY'
       expect(book.days_until_due).to be_nil
       book.due_on = Date.today + 10
       expect(book.days_until_due).to eq 10
     end
   end
 
-  describe '#keyword_array', pending: 'EA... MEDIUM' do
+  describe '#keyword_array' do
     it 'should be a lowercase array of all relevant words' do
+      pending 'EA... MEDIUM'
       expect(book.keyword_array).to be_empty
 
       book.title = 'Sqornshellous Swamptalk'
