@@ -1,4 +1,8 @@
-Firstly, make sure you're set up and good to go. [^1]
+Firstly, clone this repo from Github:
+
+    git clone https://github.com/danielfone/chchruby-compsoc-library.git
+
+Then make sure you're set up and good to go. [^1]
 
     $ bundle
     $ bundle exec rake db:migrate db:test:prepare
@@ -51,4 +55,4 @@ Then start coding! You win when we achieve world peace. In lieu of that, a passi
 
 If you really want a challenge, there are bugs in the app not covered in the test suite. >:-)
 
-[^1]: If you're using OS X or linux, you can replace `bundle exec command` with       `bin/command` for the instructions above.
+[^1]: If you're using OS X or linux, you can replace `bundle exec command` with `bin/command` for the instructions above.
