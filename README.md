@@ -13,7 +13,7 @@ If you want to play around, seed the database and run the server:
     $ bundle exec rake db:seed
     $ bundle exec rails server
 
-When you ran the rspec, you'll see about 20 pending specs. These are all failing, but because they're marked `pending` rspec doesn't fail the suite. Each pending spec is tagged by difficulty, although this is rather subjective.
+When you run rspec, you'll see about 20 pending specs. These are all failing, but because they're marked `pending` rspec doesn't fail the suite. Each pending spec is tagged by difficulty, although this is rather subjective.
 
     Book
       should require author to be set (PENDING: EASY)
@@ -33,16 +33,21 @@ When you ran the rspec, you'll see about 20 pending specs. These are all failing
 
 You can tackle the specs in any order you like, but:
 
-  * you probably want to fix the model specs first (book then borrower will be easiest)
+  * you probably want to fix the model specs first (`Book` then `Borrower` will be easiest)
   * if you do them in the order they're presented, the methods you fix first will be handy for the methods you fix later
   * there are a couple of feature specs that only require other failing specs fixed (these are marked as such)
 
-Once you've chosen a spec to fix, remove the pending tag, run the spec again and read the error message. You might like to run the spec in documentation mode:
+Rspec helpfully provides the file and line number of the failing/pending specs. You can use this to quickly navigate there in your editor.
 
-    bundle exec rspec -fd spec/models/book_spec.rb
+    Library#return_book shoud fail on an unloaned book
+        # MEDIUM
+        # ./spec/lib/return_book_spec.rb:17
+
+Once you've chosen a spec to fix, remove the pending tag, run the spec again and read the error message. You might like to run the spec in focussed documentation mode, using the path and line number rspec provides:
+
+    bundle exec rspec -fd spec/lib/return_book_spec.rb:17
 
 Then start coding! You win when we achieve world peace. In lieu of that, a passing test suite can also be fairly satisfying.
-
 
 If you really want a challenge, there are bugs in the app not covered in the test suite. >:-)
 
