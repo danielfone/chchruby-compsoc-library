@@ -33,5 +33,6 @@ When you ran the rspec, you'll see about 20 pending specs. These are all failing
 
 You can pick and choose and tackle the specs in any order you like, but there are a couple that require other failing specs fixed first. Once you've chosen a spec to fix, remove the pending tag, run the spec again and read the error message. Then start coding! You win when we achieve world peace. In lieu of that, a passing test suite can also be fairly satisfying.
 
+If you really want a challenge, there are bugs in the app not covered in the test suite. >:-)
 
 [^1]: If you're using OS X or linux, you can replace `bundle exec command` with       `bin/command` for the instructions above.
