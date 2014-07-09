@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Library do
 
-  describe '#search', pending: 'HARD' do
+  describe '#search', pending: 'MEDIUM' do
 
     let(:parenting) {
       Book.new title: 'Practical Life in a Fractally Demented Universe',
@@ -38,7 +38,7 @@ describe Library do
     end
 
     it 'should match by keyword against any attribute' do
-      result = Library.search books, keyword: 'practical'
+      result = Library.search books, keyword: 'Practical'
       expect(result).to match_array [
         parenting,
         life,
