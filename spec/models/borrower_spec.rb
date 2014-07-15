@@ -28,7 +28,7 @@ describe Borrower do
       pending 'EASY'
       book1 = Book.new due_on: 1.day.ago
       book2 = Book.new due_on: 2.days.ago
-      book3 = Book.new due_on: Date.today
+      book3 = Book.new due_on: Time.zone.today
 
       borrower.books = [book1, book2, book3]
 
@@ -44,7 +44,7 @@ describe Borrower do
       pending 'EASY'
       expect(borrower.current_overdue_count).to eq 0
       borrower.books += build_list :book, 2
-      borrower.books += build_list :book, 2, due_on: (Date.today-1)
+      borrower.books += build_list :book, 2, due_on: (Time.zone.today-1)
       expect(borrower.current_overdue_count).to eq 2
     end
   end
