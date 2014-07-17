@@ -13,7 +13,7 @@ module Library
     raise OverdueLoanError if borrower.current_overdue_count > 0
 
     book.borrower = borrower
-    book.due_on = Date.today + days
+    book.due_on = Time.zone.today + days
     borrower.books << book
   end
 
