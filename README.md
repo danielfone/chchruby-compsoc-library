@@ -33,6 +33,12 @@ The last line should read something like:
 
     39 examples, 0 failures, 20 pending
 
+Now run the app.
+
+    $ bundle exec rails server
+
+Now you can visit `http://localhost:3000` in your browser and you should see a list of books appear.
+
 ## Taking the Challenge
 
 Firstly, you need run the application and understand what it does.
