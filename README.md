@@ -1,16 +1,15 @@
-Firstly, clone this repo from Github:
+## Install & Set Up Ruby
 
-    git clone https://github.com/danielfone/chchruby-compsoc-library.git
+This application has been tested on:
 
-## Set up Ruby
+  * OS X / Ruby 2.2.2 (installed via RVM)
+  * Windows 8 / Ruby 2.1.5 (installed via [RailsInstaller](http://railsinstaller.org/en))
 
-    $ ruby -v
-    ...
-    $ gem update --system && gem update bundler
-    Latest version currently installed. Aborting.
-    Fetching: bundler-1.10.5.gem (100%)
-    Successfully installed bundler-1.10.5
-    1 gem installed
+It's highly recommended you use either RVM or RailsInstaller to install Ruby and ensure your system has the needed dependencies.[^1] Once you've installed Ruby, run the following:
+
+    $ ruby -v               # You should see the ruby version
+    $ gem update --system
+    $ gem update bundler
 
 If the `gem update` command fails with a message about SSL, you may need to switch to an insecure gem source temporarily:
 
@@ -23,8 +22,10 @@ If the `gem update` command fails with a message about SSL, you may need to swit
 
 ## Setup the app
 
-Then make sure you're set up and good to go. [^1]
+Once the Ruby installation is verified and up to date as per the section above, we can get our demo application set up and ready to go. [^2] The syntax of these commands may need to be adjusted for Windows users.
 
+    $ git clone https://github.com/danielfone/chchruby-compsoc-library.git
+    $ cd chchruby-compsoc-library
     $ bundle
     $ bundle exec rake db:setup
     $ bundle exec rspec
@@ -33,7 +34,7 @@ The last line should read something like:
 
     39 examples, 0 failures, 20 pending
 
-Now run the app.
+Now run the web server.
 
     $ bundle exec rails server
 
@@ -47,9 +48,10 @@ Firstly, you need run the application and understand what it does.
 
 Open your browser and visit `http://localhost:3000`. You should see a list of books appear. Your first tasks are:
 
-  * Add a book you wrote
+  * Add a book to the library
   * Search for the new book (hmmm, something appears to be broken here!?)
-  * Add yourself as a borrower and check your book out to yourself.
+  * Add yourself as a borrower
+  * Check your new book out to yourself.
 
 Once you've played around, it's time to fix the application. When you run rspec, you'll see about 20 pending specs. These are all failing, but because they're marked `pending` rspec doesn't fail the suite. Each pending spec is tagged by difficulty, although this is rather subjective.
 
@@ -89,16 +91,5 @@ Then start coding! You win when we achieve world peace. In lieu of that, a passi
 
 If you really want a challenge, there are bugs in the app not covered in the test suite. >:-)
 
-[^1]: If you're using OS X or linux, you can replace `bundle exec command` with `bin/command` for the instructions above.
-
-## Todo
-
-- Swap out native deps
-  * json
-  * sqlite3
-  * nokogiri
-- Test on ruby 2.2.2
-- Test on ruby 2.1
-- Test on railsinstaller win8
-- Improve specs
-
+[^1]: Unless you know your system has the necessary dependencies for compiling the native nokogiri gem on your platform.
+[^2]: If you're using OS X or linux, you can replace `bundle exec command` with `bin/command` for the instructions above.
