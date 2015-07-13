@@ -11,6 +11,8 @@ gem 'uglifier'
 gem 'bootstrap-sass'
 gem 'rails_bootstrap_navbar', '~> 2.0'
 
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails', '~> 4.4'
