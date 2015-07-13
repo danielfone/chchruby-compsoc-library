@@ -178,6 +178,7 @@ DEPENDENCIES
   sass-rails
   shoulda-matchers
   sqlite3
+  tzinfo-data
   uglifier
 
 BUNDLED WITH
