@@ -92,4 +92,5 @@ Then start coding! You win when we achieve world peace. In lieu of that, a passi
 If you really want a challenge, there are bugs in the app not covered in the test suite. >:-)
 
 1: Unless you know your system has the necessary dependencies for compiling the native nokogiri gem on your platform.
+
 2: If you're using OS X or linux, you can replace `bundle exec command` with `bin/command` for the instructions above.
