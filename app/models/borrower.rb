@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: borrowers
+#
+#  id    :integer          not null, primary key
+#  name  :string
+#  code  :string
+#  limit :integer
+#
+
 class Borrower < ActiveRecord::Base
 
   has_many :books

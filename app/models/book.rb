@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  author      :string
+#  borrower_id :integer
+#  due_on      :date
+#  keywords    :string
+#
+
 class Book < ActiveRecord::Base
 
   scope :available, -> { where borrower_id: nil }
