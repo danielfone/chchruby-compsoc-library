@@ -30,7 +30,7 @@ class Book < ActiveRecord::Base
   end
 
   def borrower_name
-    # FIXME
+    borrower.name if borrower
   end
 
   def overdue?
