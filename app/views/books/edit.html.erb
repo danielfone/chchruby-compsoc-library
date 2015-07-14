@@ -2,6 +2,7 @@
   <%= link_to 'Books', books_path %>
   &rarr;
   Edit
+  <%= link_to 'Delete Book', @book, method: :delete, class: 'delete' %>
 </h2>
 
 <%= render 'form', book: @book %>

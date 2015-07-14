@@ -29,6 +29,12 @@ class BooksController < ApplicationController
     respond_with @book, location: books_path
   end
 
+  def destroy
+    @book = Book.find params[:id]
+    @book.destroy and flash[:notice] = 'Book deleted'
+    respond_with @book, location: books_path
+  end
+
   def issue
     Library.issue_book book, borrower
   rescue Library::LimitReachedError

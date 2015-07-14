@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Book management' do
 
-  is_pending = true
+  is_pending = false
 
   before do
     create :book, title: 'Celestial Homecare Omnibus', author: 'Eccentrica Gallumbits'
