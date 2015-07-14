@@ -31,6 +31,9 @@ class BooksController < ApplicationController
 
   def issue
     Library.issue_book book, borrower
+  rescue Library::LimitReachedError
+    flash[:notice] = "Borrower has reached limit"
+  ensure
     redirect_to :back
   end
 

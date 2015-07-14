@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Loan management' do
-  is_pending = true
+  is_pending = false
 
   let!(:book) { create :book, title: "Time Traveller's Handbook of 1001 Tense Formations" }
   let!(:borrower) { create :borrower, name: "Malcolm Reynolds" }
