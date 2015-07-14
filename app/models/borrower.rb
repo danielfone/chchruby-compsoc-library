@@ -27,7 +27,7 @@ class Borrower < ActiveRecord::Base
   end
 
   def current_loan_count
-    0 #FIXME
+    books.size
   end
 
   def current_overdue_count
