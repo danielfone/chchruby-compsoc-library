@@ -31,7 +31,7 @@ class Borrower < ActiveRecord::Base
   end
 
   def current_overdue_count
-    0 #FIXME
+    overdue_books.size
   end
 
 end
