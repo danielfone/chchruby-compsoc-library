@@ -54,7 +54,7 @@ Open your browser and visit `http://localhost:3000`. You should see a list of bo
   * Check your new book out to yourself.
   * Fix the annoying grey box around the forms.
 
-Once you've played around, it's time to fix the application. For each spec, open the file, set `is_pending = false`, then run the spec like so:
+Once you've played around, it's time to fix the application. For each spec, open the file, set `is_pending = false`, then run the spec like so:<sup>[3](#three)</sup>
 
     rspec spec/models/book_spec.rb --fail-fast
 
@@ -76,3 +76,8 @@ You win when we achieve world peace. Failing that, a passing test suite can also
 1: <a name="one"></a> Unless you know your system has the necessary dependencies for compiling the native nokogiri gem on your platform.
 
 2: <a name="two"></a> If you're using OS X or linux, you can replace `bundle exec command` with `bin/command` for the instructions above.
+
+3: <a name="three"></a> You can also use the rerun gem. This automatically reruns a command whenever your files change.
+
+    $ gem install rerun
+    $ rerun -- rspec --fail-fast spec/models/book_spec.rb
