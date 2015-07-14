@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Library do
+  is_pending = true
+
   let(:book) { Book.new }
   let(:borrower) { Borrower.new }
 
@@ -19,8 +21,7 @@ describe Library do
       expect(book.due_on).to eq Time.zone.today + 21
     end
 
-    it 'should not issue more books than a borrower is allowed' do
-      pending 'EASY'
+    it 'should not issue more books than a borrower is allowed', pending: is_pending do
       book2 = Book.new
       Library.issue_book book2, borrower
 
@@ -39,8 +40,8 @@ describe Library do
       expect(borrower.books).not_to include book
     end
 
-    it 'should not issue books to borrowers with overdue loans' do
-      pending 'Fix spec/models/borrower_spec.rb'
+    it 'should not issue books to borrowers with overdue loans', pending: is_pending do
+      # Fix spec/models/borrower_spec.rb
       book2 = Book.new
       Library.issue_book book2, borrower, -1
 

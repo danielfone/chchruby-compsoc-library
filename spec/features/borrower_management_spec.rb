@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature 'Borrower management' do
+  is_pending = true
 
   scenario 'Viewing existing borrowers' do
     create :borrower, name: 'River Tam', code: 123
@@ -25,8 +26,8 @@ feature 'Borrower management' do
     expect(page).to have_content 'Jayne Cobb'
   end
 
-  scenario 'Saving an invalid borrower' do
-    pending 'MEDIUM. Crib this from elsewhere'
+  scenario 'Saving an invalid borrower', pending: is_pending do
+    # Crib this from elsewhere
     visit '/'
     click_link 'Borrowers'
     click_link 'New'

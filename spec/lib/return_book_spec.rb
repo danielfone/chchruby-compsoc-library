@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Library do
+  is_pending = true
+
   let(:book) { Book.new }
   let(:borrower) { Borrower.new }
 
@@ -14,8 +16,7 @@ describe Library do
       expect(borrower.books).not_to include book
     end
 
-    it 'shoud fail on an unloaned book' do
-      pending 'MEDIUM'
+    it 'shoud fail on an unloaned book', pending: is_pending do
       expect { Library.return_book book }.to raise_error Library::NotOnLoanError
     end
 

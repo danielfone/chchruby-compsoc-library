@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'Book management' do
 
+  is_pending = true
+
   before do
     create :book, title: 'Celestial Homecare Omnibus', author: 'Eccentrica Gallumbits'
     create :book, title: 'Encyclopedia Galactica', author: 'Obtorto Collo'
@@ -17,8 +19,8 @@ feature 'Book management' do
 
   end
 
-  scenario 'Searching for a book' do
-    pending 'Fix spec/lib/search_spec.rb'
+  scenario 'Searching for a book', pending: is_pending do
+    # Fix spec/lib/search_spec.rb first
 
     visit '/'
     fill_in 'q', with: 'Obtorto'
@@ -54,8 +56,8 @@ feature 'Book management' do
     expect(page).to have_content 'Encyclopedia Galactica Omnes homines'
   end
 
-  scenario 'Deleting a book' do
-    pending 'EASY. Hint: this same functionailty is implemented elsewhere.'
+  scenario 'Deleting a book', pending: is_pending do
+    # Hint: this same functionailty is implemented elsewhere.'
 
     visit '/'
     click_link 'Encyclopedia Galactica'

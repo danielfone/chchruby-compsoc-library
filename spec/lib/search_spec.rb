@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 describe Library do
+  is_pending = true
 
-  describe '#search', pending: 'MEDIUM' do
+  describe '#search', pending: is_pending do
 
     let(:parenting) {
       Book.new title: 'Practical Life in a Fractally Demented Universe',

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature 'Loan management' do
+  is_pending = true
 
   let!(:book) { create :book, title: "Time Traveller's Handbook of 1001 Tense Formations" }
   let!(:borrower) { create :borrower, name: "Malcolm Reynolds" }
@@ -17,8 +18,8 @@ feature 'Loan management' do
     PAGE
   end
 
-  scenario 'Issue book beyond a borrowers limit' do
-    pending 'HARD. Do spec/lib/issue_book_spec.rb first'
+  scenario 'Issue book beyond a borrowers limit', pending: is_pending do
+    # Harder. Do spec/lib/issue_book_spec.rb first
     create :book, title: 'How I Survived an Hour with a Sprained Finger', borrower: borrower
     borrower.update_attributes limit: 1
 
