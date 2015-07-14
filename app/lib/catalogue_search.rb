@@ -3,6 +3,10 @@ class CatalogueSearch
   def initialize(collection, params)
     @collection = Array(collection)
     @params     = params || {}
+
+    @title = String(@params[:title]).downcase.presence
+    @author = String(@params[:author]).downcase.presence
+    @keyword = String(@params[:keyword]).downcase.presence
   end
 
   def results
@@ -12,7 +16,11 @@ class CatalogueSearch
 private
 
   def matches?(book)
-    false # FIXME
+    case
+    when @title     then book.title.downcase[@title]
+    when @author    then book.author.downcase[@author]
+    when @keyword   then book.keyword_array.include?(@keyword)
+    end
   end
 
 end

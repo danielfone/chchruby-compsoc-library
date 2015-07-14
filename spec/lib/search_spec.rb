@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Library do
-  is_pending = true
+  is_pending = false
 
   describe '#search', pending: is_pending do
 
