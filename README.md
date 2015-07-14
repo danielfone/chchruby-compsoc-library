@@ -22,7 +22,7 @@ If the `gem update` command fails with a message about SSL, you may need to swit
 
 ## 2. Setup The Application
 
-Once the Ruby installation is verified and up to date as per the section above, we can get our demo application set up and ready to go. <sup>[2](#two)</sup> The syntax of these commands may need to be adjusted for Windows users.
+Once the Ruby installation is verified and up to date as per the section above, we can get our demo application set up and ready to go.<sup>[2](#two)</sup> The syntax of these commands may need to be adjusted for Windows users.
 
     $ git clone https://github.com/danielfone/chchruby-compsoc-library.git
     $ cd chchruby-compsoc-library
@@ -56,9 +56,9 @@ Open your browser and visit `http://localhost:3000`. You should see a list of bo
 
 Once you've played around, it's time to fix the application. For each spec, open the file, set `is_pending = false`, then run the spec like so:<sup>[3](#three)</sup>
 
-    rspec spec/models/book_spec.rb --fail-fast
+    rspec --fail-fast spec/models/book_spec.rb
 
-You should see a single error. Make some changes, then run the command again. Once you've fixed the problem, rspec will run until the next failing example. Rinse and repeat until every example in the file is passing, then move on to the next file. While you can tackle the specs in any way you like, the suggested order is:
+You should see a single error. Make some changes, then run the command again. Once you've fixed the problem, rspec will run until the next failing example. Rinse and repeat until every example in the file is passing, then move on to the next file. Most of the specs don't depend on each other, so feel free to move on if you get stuck. If you get really stuck, example solutions can be found on the [solutions branch](https://github.com/danielfone/chchruby-compsoc-library/commits/solutions). While you _can_ tackle the specs in any order you like, it might be easiest to approach it as follows:
 
     rspec --fail-fast spec/models/book_spec.rb
     rspec --fail-fast spec/models/borrower_spec.rb
