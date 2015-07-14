@@ -27,8 +27,8 @@ Once the Ruby installation is verified and up to date as per the section above, 
     $ git clone https://github.com/danielfone/chchruby-compsoc-library.git
     $ cd chchruby-compsoc-library
     $ bundle
-    $ bundle exec rake db:setup
-    $ bundle exec rspec
+    $ rake db:setup
+    $ rspec
 
 The last line should read something like:
 
@@ -36,7 +36,7 @@ The last line should read something like:
 
 Now run the web server.
 
-    $ bundle exec rails server
+    $ rails server
 
 Now you can visit `http://localhost:3000` in your browser and you should see a list of books appear.
 
@@ -44,7 +44,7 @@ Now you can visit `http://localhost:3000` in your browser and you should see a l
 
 Firstly, you need run the application and understand what it does.
 
-    $ bundle exec rails server
+    $ rails server
 
 Open your browser and visit `http://localhost:3000`. You should see a list of books appear. Your first tasks are:
 
@@ -86,7 +86,7 @@ Rspec helpfully provides the file and line number of the failing/pending specs. 
 
 Once you've chosen a spec to fix, remove the pending tag, run the spec again and read the error message. You might like to run the spec in focussed documentation mode, using the path and line number rspec provides:
 
-    bundle exec rspec -fd spec/lib/return_book_spec.rb:17
+    rspec -fd spec/lib/return_book_spec.rb:17
 
 Then start coding! You win when we achieve world peace. In lieu of that, a passing test suite can also be fairly satisfying.
 
