@@ -11,14 +11,14 @@ describe Library do
     it 'should issue the book' do
       Library.issue_book book, borrower, 14
       expect(book.borrower).to eq borrower
-      expect(book.due_on).to eq Time.zone.today + 14
+      expect(book.due_on).to eq Date.today + 14
       expect(book).to be_on_loan
       expect(borrower.books).to include book
     end
 
     it 'should default to a 3 week loan' do
       Library.issue_book book, borrower
-      expect(book.due_on).to eq Time.zone.today + 21
+      expect(book.due_on).to eq Date.today + 21
     end
 
     it 'should not issue more books than a borrower is allowed', pending: is_pending do

@@ -26,10 +26,11 @@ describe Borrower do
   end
 
   describe '#overdue_books' do
+    # Have we written a method on Book that might help with this?
     it 'should return books due before today', pending: is_pending do
       book1 = Book.new due_on: 1.day.ago
       book2 = Book.new due_on: 2.days.ago
-      book3 = Book.new due_on: Time.zone.today
+      book3 = Book.new due_on: Date.today
 
       borrower.books = [book1, book2, book3]
 
@@ -44,7 +45,7 @@ describe Borrower do
     it 'should be the number of overdue books of the borrowers book collection', pending: is_pending do
       expect(borrower.current_overdue_count).to eq 0
       borrower.books += build_list :book, 2
-      borrower.books += build_list :book, 2, due_on: (Time.zone.today-1)
+      borrower.books += build_list :book, 2, due_on: (Date.today-1)
       expect(borrower.current_overdue_count).to eq 2
     end
   end

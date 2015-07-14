@@ -42,7 +42,7 @@ describe Book do
   describe '#days_until_due' do
     it 'should be the number of days until due date', pending: is_pending do
       expect(book.days_until_due).to be_nil
-      book.due_on = Time.zone.today + 10
+      book.due_on = Date.today + 10
       expect(book.days_until_due).to eq 10
     end
   end
