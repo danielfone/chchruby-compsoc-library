@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Borrower do
   subject(:borrower) { described_class.new }
 
-  is_pending = true
+  is_pending = false
 
   describe '#current_loan_count' do
     it 'should be the size of the borrowers book collection', pending: is_pending do
