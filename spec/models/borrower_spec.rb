@@ -13,14 +13,16 @@ describe Borrower do
     end
   end
 
-  it 'should know the limits', pending: is_pending do
-    expect(borrower).not_to be_at_limit
-    borrower.limit = 1
-    expect(borrower).not_to be_at_limit
-    borrower.books << Book.new
-    expect(borrower).to be_at_limit
-    borrower.books << Book.new
-    expect(borrower).to be_at_limit
+  describe '#at_limit?' do
+    it 'should report whether borrow is at loan limit', pending: is_pending do
+      expect(borrower).not_to be_at_limit
+      borrower.limit = 1
+      expect(borrower).not_to be_at_limit
+      borrower.books << Book.new
+      expect(borrower).to be_at_limit
+      borrower.books << Book.new
+      expect(borrower).to be_at_limit
+    end
   end
 
   describe '#overdue_books' do
@@ -47,11 +49,13 @@ describe Borrower do
     end
   end
 
-  it 'should automatically generate a code if none is provided', pending: is_pending do
-    borrower = build :borrower
-    expect(borrower.code).to be_nil
-    borrower.save!
-    expect(borrower.code).to match /B\d{5}/
+  describe '#code' do
+    it 'should be automatically generated if none is provided', pending: is_pending do
+      borrower = build :borrower
+      expect(borrower.code).to be_nil
+      borrower.save!
+      expect(borrower.code).to match /B\d{5}/
+    end
   end
 
 end

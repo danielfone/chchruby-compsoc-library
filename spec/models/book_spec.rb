@@ -13,6 +13,7 @@ describe Book do
     expect(book).to validate_presence_of :author
   end
 
+  # You can see the effect of this on the books page when there are books on loan
   it 'should know the borrower name', pending: is_pending do
     expect(book.borrower_name).to be_nil
     book.borrower = Borrower.new name: 'Malcolm Reynolds'
@@ -55,9 +56,19 @@ describe Book do
       book.author = 'Oolon Colluphid'
       book.keywords = 'ancient poet forests Long Lands dried Habra leaves'
 
-      expect(book.keyword_array).to include *%w[
-        sqornshellous swamptalk oolon colluphid
-        ancient poet forests long lands dried habra leaves
+      expect(book.keyword_array).to eq %w[
+        sqornshellous
+        swamptalk
+        oolon
+        colluphid
+        ancient
+        poet
+        forests
+        long
+        lands
+        dried
+        habra
+        leaves
       ]
     end
   end
