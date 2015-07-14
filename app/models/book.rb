@@ -16,7 +16,7 @@ class Book < ActiveRecord::Base
 
   belongs_to :borrower
 
-  validates_presence_of :title
+  validates_presence_of :title, :author
 
   def on_loan?
     # !! is a ruby idiom that converts a 'truthy' value to true.
