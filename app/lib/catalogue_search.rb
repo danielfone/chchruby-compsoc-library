@@ -3,7 +3,6 @@ class CatalogueSearch
   def initialize(collection, params)
     @collection = Array(collection)
     @params     = params || {}
-    @keyword    = @params.delete :keyword
   end
 
   def results
