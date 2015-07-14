@@ -26,6 +26,7 @@ feature 'Borrower management' do
     expect(page).to have_content 'Jayne Cobb'
   end
 
+  # Try this in the browser first
   scenario 'Saving an invalid borrower', pending: is_pending do
     # Crib this from elsewhere
     visit '/'
