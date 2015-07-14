@@ -57,7 +57,7 @@ feature 'Book management' do
   end
 
   scenario 'Deleting a book', pending: is_pending do
-    # Hint: this same functionailty is implemented elsewhere.'
+    # Hint: this same functionailty is implemented elsewhere.
 
     visit '/'
     click_link 'Encyclopedia Galactica'

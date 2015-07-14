@@ -17,11 +17,12 @@ describe Library do
     let(:dictionary) {
       Book.new title:  'The Ultra-Complete Maximegalon Dictionary of Every Language Ever',
                author: 'Oolon Colluphid VI',
-               keywords: 'large-print'
+               keywords: 'large-print life'
     }
 
     let(:books) { [parenting, life, dictionary] }
 
+    # You can try these out in the front-end as well
     it 'should match by title' do
       result = Library.search books, title: 'life'
       expect(result).to match_array [

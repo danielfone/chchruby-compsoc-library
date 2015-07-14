@@ -60,14 +60,14 @@ Once you've played around, it's time to fix the application. For each spec, open
 
 You should see a single error. Make some changes, then run the command again. Once you've fixed the problem, rspec will run until the next failing example. Rinse and repeat until every example in the file is passing, then move on to the next file. While you can tackle the specs in any way you like, the suggested order is:
 
-    rspec spec/models/book_spec.rb --fail-fast
-    rspec spec/models/borrower_spec.rb --fail-fast
-    rspec spec/lib/issue_book_spec.rb --fail-fast [model/borrower]
-    rspec spec/lib/return_book_spec.rb --fail-fast [med]
-    rspec spec/features/borrower_management_spec.rb --fail-fast
-    rspec spec/features/loan_management_spec.rb --fail-fast [lib/issue_book]
-    rspec spec/lib/search_spec.rb --fail-fast [med]
-    rspec spec/features/book_management_spec.rb --fail-fast [lib/search]
+    rspec --fail-fast spec/models/book_spec.rb
+    rspec --fail-fast spec/models/borrower_spec.rb
+    rspec --fail-fast spec/lib/issue_book_spec.rb [model/borrower]
+    rspec --fail-fast spec/lib/return_book_spec.rb [med]
+    rspec --fail-fast spec/features/borrower_management_spec.rb
+    rspec --fail-fast spec/features/loan_management_spec.rb [lib/issue_book]
+    rspec --fail-fast spec/lib/search_spec.rb [med]
+    rspec --fail-fast spec/features/book_management_spec.rb [lib/search]
 
 You win when we achieve world peace. Failing that, a passing test suite can also be fairly satisfying.
 
