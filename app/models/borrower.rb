@@ -23,7 +23,7 @@ class Borrower < ActiveRecord::Base
   end
 
   def at_limit?
-    false # FIXME
+    current_loan_count >= limit if limit
   end
 
   def current_loan_count
