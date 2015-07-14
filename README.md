@@ -42,7 +42,7 @@ Now you can visit `http://localhost:3000` in your browser and you should see a l
 
 ## 3. Taking the Challenge
 
-Firstly, you need run the application and understand what it does.
+Firstly, you need run the application and understand what it does. If you haven't already, start the server:
 
     $ rails server
 
@@ -54,43 +54,24 @@ Open your browser and visit `http://localhost:3000`. You should see a list of bo
   * Check your new book out to yourself.
   * Fix the annoying grey box around the forms.
 
-Once you've played around, it's time to fix the application. When you run rspec, you'll see about 20 pending specs. These are all failing, but because they're marked `pending` rspec doesn't fail the suite. Each pending spec is tagged by difficulty, although this is rather subjective.
+Once you've played around, it's time to fix the application. While you can tackle the specs in anyway you like, there is a suggested order below. For each spec, open the file and set `is_pending = false`. Then run the spec like so:
 
-    Book
-      should require author to be set (PENDING: EASY)
-      should know the borrower name (PENDING: EASY)
-      when it has no due date
-        should not be overdue
-      when the due date is today
-        should not be overdue
-      when the due date has passed
-        should be overdue (PENDING: EASY)
-      when the due date is in the future
-        should not be overdue
-      #days_until_due
-        should be the number of days until due date (PENDING: EASY)
-      #keyword_array
-        should be an array of all relevant words (PENDING: EA... MEDIUM)
+    rspec spec/models/book_spec.rb --fail-fast
 
-You can tackle the specs in any order you like, but:
+You should see a single error. Make some changes, then run the command again. Once you've fixed the problem, rspec will run until the next failing example. Rinse and repeat until every example in the file is passing, then move on to the next file. The recommended order is:
 
-  * you probably want to fix the model specs first (`Book` then `Borrower` will be easiest)
-  * if you do them in the order they're presented, the methods you fix first will be handy for the methods you fix later
-  * there are a couple of feature specs that only require other failing specs fixed (these are marked as such)
+    rspec spec/models/book_spec.rb --fail-fast
+    rspec spec/models/borrower_spec.rb --fail-fast
+    rspec spec/lib/return_book_spec.rb --fail-fast [med]
+    rspec spec/lib/search_spec.rb --fail-fast [med]
+    rspec spec/lib/issue_book_spec.rb --fail-fast [model/borrower]
+    rspec spec/features/borrower_management_spec.rb --fail-fast
+    rspec spec/features/book_management_spec.rb --fail-fast [lib/search]
+    rspec spec/features/loan_management_spec.rb --fail-fast [lib/issue_book]
 
-Rspec helpfully provides the file and line number of the failing/pending specs. You can use this to quickly navigate there in your editor.
+You win when we achieve world peace. Failing that, a passing test suite can also be fairly satisfying.
 
-    Library#return_book shoud fail on an unloaned book
-        # MEDIUM
-        # ./spec/lib/return_book_spec.rb:17
-
-Once you've chosen a spec to fix, remove the pending tag, run the spec again and read the error message. You might like to run the spec in focussed documentation mode, using the path and line number rspec provides:
-
-    rspec -fd spec/lib/return_book_spec.rb:17
-
-Then start coding! You win when we achieve world peace. In lieu of that, a passing test suite can also be fairly satisfying.
-
-If you really want a challenge, there are bugs in the app not covered in the test suite. >:-)
+---
 
 1: <a name="one"></a> Unless you know your system has the necessary dependencies for compiling the native nokogiri gem on your platform.
 
