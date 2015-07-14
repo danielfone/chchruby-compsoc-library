@@ -54,11 +54,11 @@ Open your browser and visit `http://localhost:3000`. You should see a list of bo
   * Check your new book out to yourself.
   * Fix the annoying grey box around the forms.
 
-Once you've played around, it's time to fix the application. While you can tackle the specs in anyway you like, there is a suggested order below. For each spec, open the file and set `is_pending = false`. Then run the spec like so:
+Once you've played around, it's time to fix the application. For each spec, open the file, set `is_pending = false`, then run the spec like so:
 
     rspec spec/models/book_spec.rb --fail-fast
 
-You should see a single error. Make some changes, then run the command again. Once you've fixed the problem, rspec will run until the next failing example. Rinse and repeat until every example in the file is passing, then move on to the next file. The recommended order is:
+You should see a single error. Make some changes, then run the command again. Once you've fixed the problem, rspec will run until the next failing example. Rinse and repeat until every example in the file is passing, then move on to the next file. While you can tackle the specs in any way you like, the suggested order is:
 
     rspec spec/models/book_spec.rb --fail-fast
     rspec spec/models/borrower_spec.rb --fail-fast
