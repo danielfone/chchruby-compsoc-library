@@ -42,7 +42,7 @@ class Book < ActiveRecord::Base
   end
 
   def keyword_array
-    [] #FIXME
+    "#{title} #{author} #{keywords}".downcase.split
   end
 
 end
