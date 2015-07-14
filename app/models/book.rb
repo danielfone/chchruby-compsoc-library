@@ -38,7 +38,7 @@ class Book < ActiveRecord::Base
   end
 
   def days_until_due
-    0 # FIXME
+    due_on - Date.today if due_on
   end
 
   def keyword_array
