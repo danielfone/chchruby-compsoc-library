@@ -34,7 +34,7 @@ class Book < ActiveRecord::Base
   end
 
   def overdue?
-    false # FIXME
+    due_on < Date.today if due_on
   end
 
   def days_until_due
