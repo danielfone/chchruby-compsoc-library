@@ -21,6 +21,7 @@ describe Library do
       expect(book.due_on).to eq Date.today + 21
     end
 
+    # Is there a method on borrower that will make this simple?
     it 'should not issue more books than a borrower is allowed', pending: is_pending do
       book2 = Book.new
       Library.issue_book book2, borrower

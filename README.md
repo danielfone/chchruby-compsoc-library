@@ -64,10 +64,10 @@ You should see a single error. Make some changes, then run the command again. On
     rspec spec/models/borrower_spec.rb --fail-fast
     rspec spec/lib/issue_book_spec.rb --fail-fast [model/borrower]
     rspec spec/lib/return_book_spec.rb --fail-fast [med]
-    rspec spec/lib/search_spec.rb --fail-fast [med]
-    rspec spec/features/book_management_spec.rb --fail-fast [lib/search]
     rspec spec/features/borrower_management_spec.rb --fail-fast
     rspec spec/features/loan_management_spec.rb --fail-fast [lib/issue_book]
+    rspec spec/lib/search_spec.rb --fail-fast [med]
+    rspec spec/features/book_management_spec.rb --fail-fast [lib/search]
 
 You win when we achieve world peace. Failing that, a passing test suite can also be fairly satisfying.
 
