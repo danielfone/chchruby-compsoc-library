@@ -1,0 +1,22 @@
+.save-record form {
+  input[type="submit"] {
+    @extend .btn;
+    @extend .btn-primary;
+    float: left;
+  }
+  border: 2px dashed gray;
+  padding: 1em; // this is pointless
+}
+
+.form-errors {
+  @extend .alert;
+  @extend .alert-danger;
+}
+
+a.delete {
+  @extend .btn;
+  @extend .btn-warning;
+  float: right;
+}
+
+label { font-weight: normal; }

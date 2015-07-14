@@ -52,6 +52,7 @@ Open your browser and visit `http://localhost:3000`. You should see a list of bo
   * Search for the new book (hmmm, something appears to be broken here!?)
   * Add yourself as a borrower
   * Check your new book out to yourself.
+  * Fix the annoying grey box around the forms.
 
 Once you've played around, it's time to fix the application. When you run rspec, you'll see about 20 pending specs. These are all failing, but because they're marked `pending` rspec doesn't fail the suite. Each pending spec is tagged by difficulty, although this is rather subjective.
 

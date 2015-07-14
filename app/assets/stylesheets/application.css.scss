@@ -13,16 +13,8 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-nav.main {
-  @extend .navbar;
-  @extend .navbar-default;
-
-  ul.menu {
-    @extend .nav;
-    @extend .navbar-nav;
-  }
-}
+@import "nav";
+@import "forms";
 
 h2 {
   @extend .page-header;
@@ -37,19 +29,6 @@ table {
   @extend .alert-info;
 }
 
-.save-record form {
-  input[type="submit"] {
-    @extend .btn;
-    @extend .btn-primary;
-    float: left;
-  }
-}
-
-.form-errors {
-  @extend .alert;
-  @extend .alert-danger;
-}
-
 a.delete {
   @extend .btn;
   @extend .btn-warning;
@@ -61,5 +40,3 @@ a.action {
   @extend .btn-default;
   @extend .btn-xs;
 }
-
-label { font-weight: normal; }
