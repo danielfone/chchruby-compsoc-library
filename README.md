@@ -5,7 +5,7 @@ This application has been tested on:
   * OS X / Ruby 2.2.2 (installed via RVM)
   * Windows 8 / Ruby 2.1.5 (installed via [RailsInstaller](http://railsinstaller.org/en))
 
-It's highly recommended you use either RVM or RailsInstaller to install Ruby and ensure your system has the needed dependencies.<sup>1</sup> Once you've installed Ruby, run the following:
+It's highly recommended you use either RVM or RailsInstaller to install Ruby and ensure your system has the needed dependencies.<sup>[1](#one)</sup> Once you've installed Ruby, run the following:
 
     $ ruby -v               # You should see the ruby version
     $ gem update --system
@@ -22,7 +22,7 @@ If the `gem update` command fails with a message about SSL, you may need to swit
 
 ## 2. Setup The Application
 
-Once the Ruby installation is verified and up to date as per the section above, we can get our demo application set up and ready to go. <sup>2</sup> The syntax of these commands may need to be adjusted for Windows users.
+Once the Ruby installation is verified and up to date as per the section above, we can get our demo application set up and ready to go. <sup>[2](#two)</sup> The syntax of these commands may need to be adjusted for Windows users.
 
     $ git clone https://github.com/danielfone/chchruby-compsoc-library.git
     $ cd chchruby-compsoc-library
@@ -91,6 +91,6 @@ Then start coding! You win when we achieve world peace. In lieu of that, a passi
 
 If you really want a challenge, there are bugs in the app not covered in the test suite. >:-)
 
-1: Unless you know your system has the necessary dependencies for compiling the native nokogiri gem on your platform.
+1: <a name="one"></a> Unless you know your system has the necessary dependencies for compiling the native nokogiri gem on your platform.
 
-2: If you're using OS X or linux, you can replace `bundle exec command` with `bin/command` for the instructions above.
+2: <a name="two"></a> If you're using OS X or linux, you can replace `bundle exec command` with `bin/command` for the instructions above.
