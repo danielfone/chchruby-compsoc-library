@@ -1,10 +1,9 @@
 module Library
-  class LibraryError < StandardError; end
-  class LimitReachedError < LibraryError; end
-  class AlreadyOnLoanError < LibraryError; end
-  class OverdueLoanError < LibraryError; end
-  class NotOnLoanError < LibraryError; end
-
+  LibraryError        = Class.new StandardError
+  LimitReachedError   = Class.new LibraryError
+  AlreadyOnLoanError  = Class.new LibraryError
+  OverdueLoanError    = Class.new LibraryError
+  NotOnLoanError      = Class.new LibraryError
 
   module_function
 
