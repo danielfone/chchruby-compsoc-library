@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Book do
   subject(:book) { described_class.new }
 
-  is_pending = true
+  is_pending = false
 
   # RECOMMENDATION:
   # Create a book without an author through the web interface.
