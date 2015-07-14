@@ -18,6 +18,8 @@ module Library
   end
 
   def return_book(book)
+    raise NotOnLoanError unless book.borrower
+
     book.borrower.books.delete book
     book.borrower = nil
     book.due_on = nil
