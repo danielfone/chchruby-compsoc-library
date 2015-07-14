@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Library do
-  is_pending = true
+  is_pending = false
 
   let(:book) { Book.new }
   let(:borrower) { Borrower.new }
