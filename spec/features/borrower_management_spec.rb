@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Borrower management' do
-  is_pending = true
+  is_pending = false
 
   scenario 'Viewing existing borrowers' do
     create :borrower, name: 'River Tam', code: 123
