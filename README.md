@@ -69,7 +69,14 @@ You should see a single error. Make some changes, then run the command again. On
     rspec --fail-fast spec/lib/search_spec.rb
     rspec --fail-fast spec/features/book_management_spec.rb
 
-You win when we achieve world peace. Failing that, a passing test suite can also be fairly satisfying.
+You win when we achieve world peace. Failing that, a passing test suite can also be fairly satisfying. When you think you've completed everything, run `rspec` again and ensure the suite is green.
+
+    $ rspec
+    .......................................
+
+    Finished in 0.86335 seconds (files took 2.49 seconds to load)
+    39 examples, 0 failures
+
 
 ---
 
