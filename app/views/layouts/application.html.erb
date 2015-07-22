@@ -3,24 +3,14 @@
 <head>
   <title>CompsocLibrary</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag 'jquery-1.11.2' %>
+  <%= javascript_include_tag 'jquery-ujs' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <%= navbar do %>
-    <%= navbar_header brand: 'Compsoc Library', brand_link: '/' %>
-    <%= navbar_group do %>
-      <%= navbar_item 'Books', books_path %>
-      <%= navbar_item 'Borrowers', borrowers_path %>
-    <%- end -%>
-    <%= form_tag search_books_path, method: :get, class: "navbar-form navbar-left" do %>
-      <div class="form-group">
-        <%= text_field_tag :q, params[:q], class: "form-control", placeholder: "Search for books..." %>
-      </div>
-      <input type="submit" class="btn btn-default" value="Search">
-    <%- end -%>
-  <%- end -%>
+  <%= render 'navbar' %>
+
   <div class="container">
     <%= content_tag :div, flash[:notice], class: 'notice' if flash[:notice] %>
 

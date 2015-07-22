@@ -1,15 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2.3'
+gem 'activerecord', '~> 4.2.3'
+gem 'actionpack', '~> 4.2.3'
 gem 'sqlite3'
-gem 'jquery-rails'
 gem 'responders', '~> 2.0'
-
-gem 'sass-rails'
-gem 'coffee-rails'
-gem 'uglifier'
-gem 'bootstrap-sass'
-gem 'rails_bootstrap_navbar', '~> 2.0'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
