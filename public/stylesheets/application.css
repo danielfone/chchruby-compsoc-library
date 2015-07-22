@@ -8988,11 +8988,6 @@ button.close {
     display: none !important;
   }
 }
-/* line 1, /Users/danielfone/Development/chchruby/compsoc-library/app/assets/stylesheets/forms.scss */
-.save-record form {
-  border: 2px dashed gray;
-  padding: 1em;
-}
 /* line 2, /Users/danielfone/Development/chchruby/compsoc-library/app/assets/stylesheets/forms.scss */
 .save-record form input[type="submit"] {
   float: left;
